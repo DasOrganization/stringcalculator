@@ -1,5 +1,8 @@
 package is.ru.stringcalculator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Calculator {
 
 	public static int add(String text){
@@ -7,6 +10,7 @@ public class Calculator {
 			return 0;
 		}
 		else if(text.contains(",")){
+			
 			return sum(splitNumbers(text));
 		}
 		else
@@ -18,7 +22,7 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split(",");
+	    return numbers.split(",|\n");
 	}
       
     private static int sum(String[] numbers){
@@ -28,7 +32,8 @@ public class Calculator {
 		}
 		return total;
     }
-
-
-
 }
+
+
+
+
