@@ -9,12 +9,9 @@ public class Calculator {
 		if(text.equals("")){
 			return 0;
 		}
-		else if(text.contains(",")){
-			
+		else {
 			return sum(splitNumbers(text));
 		}
-		else
-			return 1;
 	}
 
 	private static int toInt(String number){
@@ -22,8 +19,17 @@ public class Calculator {
 	}
 
 	private static String[] splitNumbers(String numbers){
-	    return numbers.split(",|\n");
+		if(numbers.startsWith("//")){
+			Matcher m = Pattern.compile("//(.)\n(.*)").matcher(numbers);
+			m.matches();
+			String delimiter = m.group(1);
+			String number = m.group(2);
+			return number.split(delimiter);
+		} else {
+			return numbers.split(",|\n");
+		}
 	}
+
       
     private static int sum(String[] numbers){
  	    int total = 0;
