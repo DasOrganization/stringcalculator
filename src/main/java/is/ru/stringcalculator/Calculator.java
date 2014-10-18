@@ -3,19 +3,26 @@ package is.ru.stringcalculator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
+
 public class Calculator {
+
+
 
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
 		}
 		else {
+			nonNegativeMessage(text);
 			return sum(splitNumbers(text));
 		}
 	}
 
 	private static int toInt(String number){
 		return Integer.parseInt(number);
+		
 	}
 
 	private static String[] splitNumbers(String numbers){
@@ -38,6 +45,32 @@ public class Calculator {
 		}
 		return total;
     }
+
+    private static void nonNegativeMessage(String s) {
+    	if(s.contains("-1")) {
+    		throw new RuntimeException("Negatives not allowed: -1");
+    	}
+    	if(negs.contains("-")) {
+    		throw new RuntimeException("Negatives not allowed: " + negs);
+    	}
+    }
+
+   	private static String negs = "";
+
+   	/*
+    private static void NumbersHigherThanThousand() {
+    	int[] copy = clone(numberAdd);
+
+    	for (int i = 0; i < copy.length; i++) {
+    		int currentNumber = copy[i];
+    		if(currentNumber > 1000) {
+    			numberAdd = removeElement(currentNumber, numberAdd);
+    		}
+    	}
+    }
+*/
+
+
 }
 
 

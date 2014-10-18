@@ -36,7 +36,54 @@ public class CalculatorTest {
 
   	@Test
  	public void testDifferentDelimiter(){
- 	assertEquals(3, Calculator.add("//;\n1;2"));
+ 		assertEquals(3, Calculator.add("//;\n1;2"));
  	}
 
+ 	@Test(expected = RuntimeException.class) 
+ 	public void testonNegativeReport(){
+ 		Calculator.add("-1, 2");
+ 	}
+  	
+  	@Test
+ 	public void testNonNegative(){
+ 		try{
+ 			Calculator.add("-1, 2");
+ 		} catch (RuntimeException e) {
+ 			assertEquals("Negatives not allowed: -1", e.getMessage());
+ 		}
+ 	}
+
+  	@Test
+ 	public void testManyNonNegative(){
+ 		try{
+ 			Calculator.add("2,-4,3,-5");
+ 		} catch (RuntimeException e) {
+ 			assertEquals("Negatives not allowed: -4, -5", e.getMessage());
+ 		}
+ 	}
+
+
+ /*	@Test
+ 	public void testNonNegativeMessage(){
+ 		try{
+ 			Calculator.add("2,-4,3,-5");
+ 		//	fail("blabla");
+ 		} catch (RuntimeException e) {
+ 			assertEquals("Negatives not allowed: -4 -5", e.getMessage());
+ 		}
+ 	}
+
+*/
+
+
+
+
+
+/*
+ 	@Test
+ 	public void testNumbersHigherThanThousand(){
+ 		int result = Calculator.add("1001,2");
+ 		assertEquals(result, 2);
+ 	}
+*/
 }
