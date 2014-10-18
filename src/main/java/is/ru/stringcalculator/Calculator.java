@@ -16,7 +16,6 @@ public class Calculator {
 		}
 		else {
 			nonNegativeMessage(text);
-			//ignoreNumbersHigherThanThousand(number);
 			return sum(splitNumbers(text));
 		}
 	}
