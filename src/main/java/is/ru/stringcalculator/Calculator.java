@@ -16,6 +16,7 @@ public class Calculator {
 		}
 		else {
 			nonNegativeMessage(text);
+			//ignoreNumbersHigherThanThousand(number);
 			return sum(splitNumbers(text));
 		}
 	}
@@ -41,10 +42,12 @@ public class Calculator {
     private static int sum(String[] numbers){
  	    int total = 0;
         for(String number : numbers){
+        	if(toInt(number) <= 1000){
 		    total += toInt(number);
 		}
+	}
 		return total;
-    }
+	}
 
     private static void nonNegativeMessage(String s) {
     	if(s.contains("-1")) {
@@ -56,19 +59,6 @@ public class Calculator {
     }
 
    	private static String negs = "";
-
-   	/*
-    private static void NumbersHigherThanThousand() {
-    	int[] copy = clone(numberAdd);
-
-    	for (int i = 0; i < copy.length; i++) {
-    		int currentNumber = copy[i];
-    		if(currentNumber > 1000) {
-    			numberAdd = removeElement(currentNumber, numberAdd);
-    		}
-    	}
-    }
-*/
 
 
 }

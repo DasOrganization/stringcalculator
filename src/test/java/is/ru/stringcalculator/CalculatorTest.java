@@ -62,28 +62,10 @@ public class CalculatorTest {
  		}
  	}
 
-
- /*	@Test
- 	public void testNonNegativeMessage(){
- 		try{
- 			Calculator.add("2,-4,3,-5");
- 		//	fail("blabla");
- 		} catch (RuntimeException e) {
- 			assertEquals("Negatives not allowed: -4 -5", e.getMessage());
- 		}
- 	}
-
-*/
-
-
-
-
-
-/*
- 	@Test
+	@Test
  	public void testNumbersHigherThanThousand(){
- 		int result = Calculator.add("1001,2");
+ 		int result = Calculator.add("2,1001");
  		assertEquals(result, 2);
  	}
-*/
+
 }
