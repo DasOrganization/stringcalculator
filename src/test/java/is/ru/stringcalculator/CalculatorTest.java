@@ -64,8 +64,8 @@ public class CalculatorTest {
 
 	@Test
  	public void testNumbersHigherThanThousand(){
- 		int result = Calculator.add("2,1001");
- 		assertEquals(result, 2);
+ 		int result = Calculator.add("1001,2");
+ 		assertEquals(2, result);
  	}
 
 }
